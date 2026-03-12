@@ -13,14 +13,15 @@
   4. 버튼 이동범위제한:this.ClientSize.Width/Height - CatchButton.Width/Height
 <img width="1187" height="739" alt="image" src="https://github.com/user-attachments/assets/612f1f23-f533-4c8c-8704-71bc496c53d6" />
 ###2단계 코드의 실행 버튼을잡았을때와놓쳤을때적절한피드백을주기
+윈도우 기본 소리로 잡았을때 놓쳤을떄 소리 생성
 - <img width="1567" height="1037" alt="image" src="https://github.com/user-attachments/assets/c6fa74ef-f2e2-4e9a-be66-76cadcb84486" />
-    윈도우 기본 소리로 잡았을때 놓쳤을떄 소리 생성
 ###3단계 코드의 실행 점수표시와점수별난이도조정
+마우스 클릭에서 잡을때 마다 10퍼센트 감소,왼쪽 상단 좌표 표시
 <img width="773" height="657" alt="image" src="https://github.com/user-attachments/assets/c971a3c9-2120-49bc-a6f6-5d600eb15d16" />
 
- CatchButton.Width = (int)(CatchButton.Width * 0.9);
+CatchButton.Width = (int)(CatchButton.Width * 0.9);
 CatchButton.Height = (int)(CatchButton.Height * 0.9);
-마우스 클릭에서 잡을때 마다 10퍼센트 감소,왼쪽 상단 좌표 표시
+
 ###4단계 코드의 실행 스크린샷
 - <img width="1573" height="965" alt="image" src="https://github.com/user-attachments/assets/29a62a45-f706-4374-a20b-fe8a212f26aa" />
   실패시 게임오버,다시시작 활성화
