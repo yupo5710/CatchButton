@@ -21,7 +21,13 @@
 
 CatchButton.Width = (int)(CatchButton.Width * 0.9);
 CatchButton.Height = (int)(CatchButton.Height * 0.9);
+코드를 이용하여 성공시 10퍼센트씩 크기 감소
 
 ###4단계 코드의 실행 스크린샷
 - <img width="1573" height="965" alt="image" src="https://github.com/user-attachments/assets/29a62a45-f706-4374-a20b-fe8a212f26aa" />
   실패시 게임오버,다시시작 활성화
+
+###어려웠던점
+--------------------
+게임 초기화시 초기 설정을 바꾸는것이 어려웠으나 게임 리스타트 버튼에서 전부다 다시 입력하는것으로 해결함
+
