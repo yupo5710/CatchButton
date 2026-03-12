@@ -4,8 +4,6 @@ namespace CatchButton
 {
     public partial class Form1 : Form
     {
-        private Random _rand = new Random();
-        //랜덤 변수 생성
         public Form1()
         {
             InitializeComponent();
@@ -18,20 +16,19 @@ namespace CatchButton
 
         private void CatchButton_MouseEnter(object sender, EventArgs e)
         {
-            // 버튼이 이동할 수 있는 최대 X, Y 범위 계산
-            int maxX = this.ClientSize.Width - CatchButton.Width;
-            int maxY = this.ClientSize.Height - CatchButton.Height;
-            //ClientSize.Width - CatchButton.Width -- x,y값이 윈도우 창 너비를 벗어나지 못하도록 설정
-
-            // 랜덤 위치 생성
-            int newX = _rand.Next(0, maxX);
-            int newY = _rand.Next(0, maxY);
-
-            // 버튼 위치 이동
-            CatchButton.Location = new Point(newX, newY);
-
-            //Form 제목 위치 자표 표시
-            this.Text = $"버튼 위치: ({newX}, {newY})";
+            // 1. 난수생성기준비
+            Random rd = new Random();
+            // 2. 가용영역계산(버튼이폼테두리에걸리지않게보호)
+            // ClientSize는타이틀바와테두리를제외한실제흰도화지영역임
+            int maxX = this.ClientSize.Width - CatchButton.Width;// CatchButton.Width 버튼이 넘어가지 않도록 조치
+            int maxY = this.ClientSize.Height - CatchButton.Height;//CatchButton.Height 버튼이 넘어가지 않도록 조치
+            // 3. 랜덤좌표추출(0 ~ 최대가용치사이)
+            int nextX = rd.Next(0, maxX);
+            int nextY = rd.Next(0, maxY);
+            // 4. 위치할당(새로운Point 객체생성)
+            CatchButton.Location = new Point(nextX, nextY);
+            // 5. 시각적피드백(폼제목표시줄에좌표출력)
+            this.Text = $"버튼위치: ({nextX}, {nextY})";
 
         }
     }
