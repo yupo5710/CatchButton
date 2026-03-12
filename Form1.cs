@@ -9,7 +9,8 @@ namespace CatchButton
         public Form1()
         {
             InitializeComponent();
-            RestartButton.Enabled = false;
+            RestartButton.Enabled = false;//평소에는 비활성화
+
         }
 
         private int score = 0;
@@ -42,6 +43,7 @@ namespace CatchButton
             RestartButton.Enabled = false;
 
             this.Text = "점수: 0";
+//재시작시 전부 초기화
         }
 
         private void CatchMe_Click(object sender, EventArgs e)
@@ -53,7 +55,7 @@ namespace CatchButton
 
             score += 100;
 
-            CatchButton.Width = (int)(CatchButton.Width * 0.9);
+            CatchButton.Width = (int)(CatchButton.Width * 0.9);//클리어시 10퍼센트씩 작아짐
             CatchButton.Height = (int)(CatchButton.Height * 0.9);
 
             SystemSounds.Asterisk.Play();
