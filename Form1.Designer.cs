@@ -52,6 +52,7 @@
             RestartButton.TabIndex = 1;
             RestartButton.Text = "RestartButton";
             RestartButton.UseVisualStyleBackColor = true;
+            RestartButton.Click += RestartButton_Click;
             // 
             // Form1
             // 
