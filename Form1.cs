@@ -1,5 +1,5 @@
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
-
+using System.Media;
 namespace CatchButton
 {
     public partial class Form1 : Form
@@ -8,16 +8,27 @@ namespace CatchButton
         {
             InitializeComponent();
         }
+        private void PlaySound(string fileName)
+        {
+            SoundPlayer player = new SoundPlayer(fileName);
+            player.Play();
+        }
 
+        
         private void CatchMe_Click(object sender, EventArgs e)
         {
-            
+            // 잡았을 때 효과음
+            PlaySound("Catch.wav");
+
+            MessageBox.Show("축하합니다~!");
+
         }
 
         private void CatchButton_MouseEnter(object sender, EventArgs e)
         {
             // 1. 난수생성기준비
             Random rd = new Random();
+            PlaySound("Run.wav");
             // 2. 가용영역계산(버튼이폼테두리에걸리지않게보호)
             // ClientSize는타이틀바와테두리를제외한실제흰도화지영역임
             int maxX = this.ClientSize.Width - CatchButton.Width;// CatchButton.Width 버튼이 넘어가지 않도록 조치
