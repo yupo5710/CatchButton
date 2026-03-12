@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             CatchButton = new Button();
+            RestartButton = new Button();
             SuspendLayout();
             // 
             // CatchButton
@@ -43,11 +44,21 @@
             CatchButton.Click += CatchMe_Click;
             CatchButton.MouseEnter += CatchButton_MouseEnter;
             // 
+            // RestartButton
+            // 
+            RestartButton.Location = new Point(852, 608);
+            RestartButton.Name = "RestartButton";
+            RestartButton.Size = new Size(208, 46);
+            RestartButton.TabIndex = 1;
+            RestartButton.Text = "RestartButton";
+            RestartButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(14F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1172, 678);
+            Controls.Add(RestartButton);
             Controls.Add(CatchButton);
             ForeColor = SystemColors.Highlight;
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -60,6 +71,6 @@
         #endregion
 
         private Button CatchButton;
-
+        private Button RestartButton;
     }
 }

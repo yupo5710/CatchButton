@@ -1,5 +1,6 @@
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Media;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 namespace CatchButton
 {
     public partial class Form1 : Form
@@ -9,14 +10,36 @@ namespace CatchButton
             InitializeComponent();
         }
         private int score = 0; //점수 계산기
+        private int missCount = 0;      // 놓친 횟수
+        private const int maxMiss = 20; // 게임 오버 기준
 
-        private void PlaySound(string fileName) // 효과음 재생 메서드
+
+        private void GameOver()
         {
-            SoundPlayer player = new SoundPlayer(fileName);
-            player.Play();
+            MessageBox.Show("Game Over!");
+
+            CatchButton.Enabled = false;   // 게임 버튼 비활성화
+            RestartButton.Enabled = true;  // 다시 시작 버튼 활성화
+
+            this.Text = $"점수: {score} (게임 종료)";
+        }
+        private void RestartButton_Click(object sender, EventArgs e)
+        {
+            score = 0;
+            missCount = 0;
+
+            // 버튼 크기 초기화
+            CatchButton.Width = 150;
+            CatchButton.Height = 60;
+
+            // 버튼 활성화
+            CatchButton.Enabled = true;
+            RestartButton.Enabled = false;
+
+            this.Text = "점수: 0";
         }
 
-        
+
 
         private void CatchMe_Click(object sender, EventArgs e)
         {
@@ -59,6 +82,17 @@ namespace CatchButton
             this.Text = $"버튼위치: ({nextX}, {nextY})";
             // 점수 표시
             this.Text = $"점수: {score}";
+           
+
+            // 놓친 횟수 증가
+            missCount++;
+
+            // 게임 오버 체크
+            if (missCount >= maxMiss)
+            {
+                GameOver();
+                return;
+            }
 
         }
     }
