@@ -16,7 +16,7 @@ namespace CatchButton
         private int missCount = 0;
         private const int maxMiss = 20;
         private bool isGameOver = false;
-
+       //게임오버 활성화
         private void GameOver()
         {
             isGameOver = true;
@@ -26,6 +26,7 @@ namespace CatchButton
             RestartButton.Enabled = true;
 
             this.Text = $"점수: {score} (게임 종료)";
+//게임오버시 찾는 버튼 비활성화 및 다시시작 활성화 점수 쌓기는 유지
         }
 
         private void RestartButton_Click(object sender, EventArgs e)
@@ -74,8 +75,8 @@ namespace CatchButton
 
             score -= 10;
 
-            int maxX = this.ClientSize.Width - CatchButton.Width;
-            int maxY = this.ClientSize.Height - CatchButton.Height;
+            int maxX = this.ClientSize.Width - CatchButton.Width;//창크기 충돌 방지
+            int maxY = this.ClientSize.Height - CatchButton.Height;//창크기 충돌 방지
 
             int nextX = rd.Next(0, maxX);
             int nextY = rd.Next(0, maxY);
@@ -88,7 +89,7 @@ namespace CatchButton
 
             if (missCount >= maxMiss)
             {
-                GameOver();
+                GameOver();//20회 초과시 게임 아웃
             }
         }
     }
