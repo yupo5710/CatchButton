@@ -10,9 +10,7 @@
   1. UI 구성
   2. 버튼 이동기능구현:랜덤 변수 rd변수 사용해서 x,y좌표가 포인터가 버튼에 들어갈때 사용
   3. 버튼 위치정보표시:this.Text = $"버튼위치: ({nextX}, {nextY})"
-  4. 버튼 이동범위제한:
-  int maxX = this.ClientSize.Width - CatchButton.Width;// CatchButton.Width 버튼이 넘어가지 않도록 조치
-  int maxY = this.ClientSize.Height - CatchButton.Height;//CatchButton.Height 버튼이 넘어가지 않도록 조치
+  4. 버튼 이동범위제한:this.ClientSize.Width/Height - CatchButton.Width/Height
 <img width="1187" height="739" alt="image" src="https://github.com/user-attachments/assets/612f1f23-f533-4c8c-8704-71bc496c53d6" />
 - 2단계 코드의 실행 스크린샷(여기에 이미지 삽입)
 - 3단계 코드의 실행 스크린샷(여기에 이미지 삽입)
