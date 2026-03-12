@@ -78,11 +78,10 @@ namespace CatchButton
             int nextY = rd.Next(0, maxY);
             // 4. 위치할당(새로운Point 객체생성)
             CatchButton.Location = new Point(nextX, nextY);
-            // 5. 시각적피드백(폼제목표시줄에좌표출력)
-            this.Text = $"버튼위치: ({nextX}, {nextY})";
-            // 점수 표시
-            this.Text = $"점수: {score}";
+            // 5. 시각적피드백(폼제목표시줄에좌표출력), // 점수 표시
+            this.Text = $"버튼위치: ({nextX}, {nextY},점수: {score})";
            
+            
 
             // 놓친 횟수 증가
             missCount++;
